@@ -26,11 +26,7 @@ module AuthenticationHelper
   end
 
   def forem_creator_flow_enabled?
-    Flipper.enabled?(:creator_onboarding) && waiting_on_first_user?
-  end
-
-  def waiting_on_first_user?
-    SiteConfig.waiting_on_first_user
+    Flipper.enabled?(:creator_onboarding) && SiteConfig.waiting_on_first_user
   end
 
   def disable_email_tooltip_class
